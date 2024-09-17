@@ -1,0 +1,91 @@
+*********************
+pre_req_dataset
+
+NOTE: You can check the live demo of our research here https://bit.ly/3VrzMYL
+*********************
+
+
+
+This dataset is used for finding pre-requisite edges between academic videos.
+
+File structure:
+	
+1.output_new.csv - contains potential pre-req edges, labels, video titles and taxonomies along with the features extracted for each edge
+2.output_transcript.csv - contains the transcripts video and extracted phrases using textrank for each video 
+3.output_embeddings.csv - contains potential pre-req edges, labels, video titles and taxonomies along with fasttext embeddings of each pre-reqs and concept video transcript
+
+*********************** Headers of output_new.csv ***********************
+
+1.label 
+	- 0 is not a pre-req
+	- 1 is a pre-req
+2.pre requisite
+	video title of pre-requisite video
+3.concept
+	video title of concept of video of which pre-requisite is a pre-req
+4.pre requisite taxonomy
+	taxonomy of pre-requisite video	
+5.concept taxonomy
+	concept of pre-requisite video
+6. rest are the following headers:
+	<feature name> 1_2
+	1-is first video (A)
+	2-is second video (B)
+	as shown with the sizes and short description:
+	
+	'title 12': 20, similarity between titles
+ 	'chapter 12': 20, similarity between chapter names
+ 	'topic 12': 20, similarity between the topic
+ 	'taxo 12': 20, similarity between full taxonomy
+ 	'title content 12': 10, occurence of title in content
+ 	'title content 21': 10, occurence of title in content
+ 	'title content start 12': 10, occurence of title in content first 500 characters
+ 	'title content start 21': 10, occurence of title in content first 500 characters
+ 	'content sim': 2, similarity of content
+ 	'content sim small': 2, similarity of content first 500 characters
+ 	'links title 12': 16, title and taxonomy contents similarity
+ 	'links title 21': 16, title and taxonomy contents similarity
+ 	'similar title 12': 16, title subsentence occurence in content
+ 	'similar title 21': 16, title subsentence occurence in content
+ 	'title extracted 12': 16, title similarity with extracted content
+ 	'title extracted 21': 16, title similarity with extracted content
+ 	'extracted extracted 12': 16, extracted phrases cross similarity
+ 	'extracted extracted 21': 16, extracted phrases cross similarity
+ 	'links links 12': 16, taxonomy contents cross similarity
+ 	'links links 21': 16, taxonomy contents cross similarity
+ 	'similar similar 12': 16, title phrase similarity with content
+ 	'similar similar 21': 16, title phrase similarity with content
+
+
+*note some features are not symmetric so 1_2 and 2_1 are calculated
+
+	
+
+*********************** Headers of output_transcript.csv***********************
+1.video_title	
+	title of the video
+2.video_taxonomy	
+	the taxonomy of the video
+3.extracted_phrases
+	list of extracted phrases
+4. transcript
+	original captions (CC) of the videos
+	
+	
+
+*********************** Headers of the output_embeddings.csv ***********************
+1.label 
+	- 0 is not a pre-req
+	- 1 is a pre-req
+2.pre requisite
+	video title of pre-requisite video
+3.concept
+	video title of concept of video of which pre-requisite is a pre-req
+4.pre requisite taxonomy
+	taxonomy of pre-requisite video	
+5.concept taxonomy
+	concept of pre-requisite video
+6. pre_req_emb
+	fasttext embedding of pre requisite video transcript
+7. concept_emb
+	fasttext embedding of concept video transcript
