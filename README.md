@@ -18,10 +18,15 @@ The following preprocessing techniques were used on the video transcripts:
 The algorithm used in this project leverages the contextual embeddings from BERT and captures sequential information using the Bidirectional GRU (Gated Recurrent Unit) layer. The model is trained to classify text data into binary categories. The training loop updates the model parameters to minimize the loss, and the evaluation provides insights into the model's performance on the test set. Adjusting hyperparameters and experimenting with different pre-trained BERT models could further optimize the model's performance.
 
 ## Approach
-1. **Data Preprocessing**: Cleaned the video transcripts using the mentioned techniques to prepare them for analysis.
-2. **Downsampling**: Balanced the dataset by downsampling the majority class to match the number of samples in the minority class.
-3. **Data Merging**: Merged the preprocessed data with the original dataset based on pre-requisite information.
-4. **Text Classification**: Used the BERT + Bi-GRU model to classify the text data into binary categories.
+1. **Data Preprocessing**: Applied techniques such as cleaning, tokenization, stopword removal, and lemmatization to prepare the video transcripts.
+2. **Downsampling**: Balanced the dataset by downsampling the majority class.
+3. **Data Merging**: Integrated the preprocessed data with the original dataset based on pre-requisite information.
+4. **Model Exploration**: Experimented with various models to find the best performance, including:
+   - **Supervised ML Models**: SVM, Logistic Regression, and Random Forests.
+   - **Unsupervised Learning**: K-Means and hierarchical clustering.
+   - **Graph Neural Networks** and **Ensemble Methods**: Gradient Boosting and Stacking.
+5. **Text Classification**: Used BERT + Bi-GRU for binary classification, achieving the highest F1 score and accuracy.
+
 
 ## Usage
 
